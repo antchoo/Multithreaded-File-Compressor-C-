@@ -41,20 +41,20 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
 huff/
 ├── include/
-│   ├── bitio.hpp
-│   ├── huff.hpp
-│   ├── threads.hpp
-│   └── crc32.hpp
+│ ├── bitio.hpp
+│ ├── huff.hpp
+│ ├── threads.hpp
+│ └── crc32.hpp
 ├── src/
-│   ├── bitio.cpp
-│   ├── compress.cpp
-│   ├── decompress.cpp
-│   ├── huff.cpp
-│   ├── threads.cpp
-│   ├── crc32.cpp
-│   └── main.cpp
+│ ├── bitio.cpp
+│ ├── compress.cpp
+│ ├── decompress.cpp
+│ ├── huff.cpp
+│ ├── threads.cpp
+│ ├── crc32.cpp
+│ └── main.cpp
 ├── tests/
-│   └── smoke.txt
+│ └── smoke.txt
 ├── Makefile
 └── README.md
 
