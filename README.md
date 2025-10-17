@@ -58,7 +58,7 @@ huff/
 ├── Makefile
 └── README.md
 
-#⚙️ Build Instructions
+# Build Instructions
 
 Requirements:
 
