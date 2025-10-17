@@ -1,7 +1,7 @@
 # Multithreaded-File-Compressor-C-
 Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CRC32 integrity, and parallel chunk encoding for 2–3× faster performance.
 
-### Features
+# Features
 
 - Huffman Compression / Decompression
 
@@ -78,7 +78,7 @@ This creates the executable:
 huff.exe   # Windows
 ./huff     # Linux / macOS
 
-### 🧠 Usage
+# 🧠 Usage
 Usage:
   huff -c <input> -o <output> [-l <threads>]
   huff -d <input> -o <output> [--verify]
