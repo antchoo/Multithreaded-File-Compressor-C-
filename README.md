@@ -106,13 +106,13 @@ Options:
 ### Example:
 <div align="left">
 <pre><code>
-# Compress
+#Compress
 ./huff -c tests/smoke.txt -o tests/smoke.huff
 
-# Decompress
+#Decompress
 ./huff -d tests/smoke.huff -o tests/smoke.out
 
-# Compare
+#Compare
 cmp -l tests/smoke.txt tests/smoke.out && echo "OK"
 </code></pre>
 </div>
@@ -128,36 +128,41 @@ OK
 
 # Technical Overview
 
-Huffman Tree: Built via frequency counts, stored canonically using 256 code lengths.
+* Huffman Tree: Built via frequency counts, stored canonically using 256 code lengths.
 
-Header Layout:
+* Header Layout:
 
-Field	Size	Description
-Magic bytes "HUF1"	4 B	File identifier
-Original size	8 B	Unsigned little-endian
-Code lengths	256 B	Huffman code lengths per symbol
-Pad bits	1 B	Unused bits in final byte
-CRC32	4 B	Integrity checksum
-Encoded data	variable	Bitstream of symbols
+| Field                | Size     | Description                     |
+| -------------------- | -------- | ------------------------------- |
+| Magic bytes `"HUF1"` | 4 B      | File identifier                 |
+| Original size        | 8 B      | Unsigned little-endian          |
+| Code lengths         | 256 B    | Huffman code lengths per symbol |
+| Pad bits             | 1 B      | Unused bits in final byte       |
+| CRC32                | 4 B      | Integrity checksum              |
+| Encoded data         | variable | Bitstream of symbols            |
 
-Bit I/O:
+* Bit I/O:
 Implemented manually via buffered BitWriter and BitReader classes for full control of alignment and speed.
 
-Threading Model:
+* Threading Model:
 Each worker compresses a slice of the input into an in-memory bitstream, later merged sequentially.
 
-🧪 Testing
+# Testing
 
 Smoke test included:
-
+<div align="left">
+<pre><code>
 make test
-
+</code></pre>
+</div>
 
 Example script:
-
+<div align="left">
+<pre><code>
 echo "hello hello hello huffman!" > tests/smoke.txt
 ./huff -c tests/smoke.txt -o tests/smoke.huff
 ./huff -d tests/smoke.huff -o tests/smoke.out
 cmp -l tests/smoke.txt tests/smoke.out && echo OK
-
+</code></pre>
+</div>
 
