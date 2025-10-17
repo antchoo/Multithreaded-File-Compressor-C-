@@ -38,7 +38,8 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
   * Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
 # Project Structure 
 
-'''bash
+<div align="left">
+<pre><code>
 huff/
 ├── include/
 │ ├── bitio.hpp
@@ -57,6 +58,8 @@ huff/
 │ └── smoke.txt
 ├── Makefile
 └── README.md
+</code></pre>
+</div>
 
 # Build Instructions
 
