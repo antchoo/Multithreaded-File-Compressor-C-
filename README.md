@@ -3,11 +3,11 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
 # Features
 
--Huffman Compression / Decompression
+- Huffman Compression / Decompression
 
-  -Canonical Huffman codes for compact headers and deterministic output.
+  - Canonical Huffman codes for compact headers and deterministic output.
 
-  -Bit-accurate decoding — original data restored exactly.
+  - Bit-accurate decoding — original data restored exactly.
 
 *Multithreading Support
 
