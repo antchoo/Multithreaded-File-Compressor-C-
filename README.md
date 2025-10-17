@@ -87,7 +87,9 @@ huff.exe   # Windows
 </div>
 
 # Usage
-Usage:
+
+<div align="left">
+<pre><code>
   huff -c <input> -o <output> [-l <threads>]
   huff -d <input> -o <output> [--verify]
 
@@ -98,8 +100,12 @@ Options:
   -l <threads>    (Optional) Number of threads for compression (default: auto)
   --verify        Verify integrity via CRC after decompression
   -h, --help      Show this help
+</code></pre>
+</div>
 
-Example:
+### Example:
+<div align="left">
+<pre><code>
 # Compress
 ./huff -c tests/smoke.txt -o tests/smoke.huff
 
@@ -108,26 +114,19 @@ Example:
 
 # Compare
 cmp -l tests/smoke.txt tests/smoke.out && echo "OK"
+</code></pre>
+</div>
 
-
-✅ Output:
-
+### Output:
+<div align="left">
+<pre><code>
 Compressed 'tests/smoke.txt' -> 'tests/smoke.huff' (level 5)
 Decompressed 'tests/smoke.huff' -> 'tests/smoke.out'
 OK
+</code></pre>
+</div>
 
-⚡ Parallel Encoding
-
-Compression uses multiple threads to encode independent input chunks concurrently:
-
-encode_chunks_parallel(data, table, 1 << 20, 4, chunks);
-
-
-Each thread produces its own bit buffer (MemBitWriter), which is stitched back together into one final stream — maintaining identical output to the single-threaded version.
-
-This typically yields 2×–3× speedup on large files.
-
-🧩 Technical Overview
+# Technical Overview
 
 Huffman Tree: Built via frequency counts, stored canonically using 256 code lengths.
 
@@ -161,20 +160,4 @@ echo "hello hello hello huffman!" > tests/smoke.txt
 ./huff -d tests/smoke.huff -o tests/smoke.out
 cmp -l tests/smoke.txt tests/smoke.out && echo OK
 
-📈 Future Improvements
 
-Adaptive Huffman or arithmetic coding support
-
-Streaming compression for large files
-
-Command-line --threads argument
-
-Real benchmark mode (--time)
-
-GUI frontend for educational demo
-
-🧑‍💻 Author
-
-Anton Choo
-Computer Science @ Oregon State University
-Focus: Systems, AI/ML, and high-performance software engineering
