@@ -19,23 +19,23 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
   *CRC of the original data stored in the header and verified on decompression.
 
-*Modular Design
+* Modular Design
 
-  -Each component is separated:
+  - Each component is separated:
 
-    -bitio.* – bit-level read/write
+    - bitio.* – bit-level read/write
 
-    -huff.* – canonical Huffman code logic
+    - huff.* – canonical Huffman code logic
 
-    -compress.* / decompress.* – main algorithms
+    - compress.* / decompress.* – main algorithms
 
-    -threads.* – optional multithreaded encoder
+    - threads.* – optional multithreaded encoder
 
-    -crc32.* – checksum utility
+    - crc32.* – checksum utility
 
-*Cross-platform
+* Cross-platform
 
-  *Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
+  * Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
 
 # Project Structure
 
