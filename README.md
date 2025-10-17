@@ -15,9 +15,9 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
   * Merges bitstreams into one seamless output (no per-chunk padding).
 
-*CRC32 Integrity Checking
+* CRC32 Integrity Checking
 
-  *CRC of the original data stored in the header and verified on decompression.
+  * CRC of the original data stored in the header and verified on decompression.
 
 * Modular Design
 
