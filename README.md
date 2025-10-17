@@ -36,8 +36,27 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 * Cross-platform
 
   * Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
+# Project Structure 
 
-<pre> ### 🧩 Project Structure ``` huff/ ├── include/ │ ├── bitio.hpp │ ├── huff.hpp │ ├── threads.hpp │ └── crc32.hpp ├── src/ │ ├── bitio.cpp │ ├── compress.cpp │ ├── decompress.cpp │ ├── huff.cpp │ ├── threads.cpp │ ├── crc32.cpp │ └── main.cpp ├── tests/ │ └── smoke.txt ├── Makefile └── README.md ``` </pre>
+'''bash
+huff/
+├── include/
+│ ├── bitio.hpp
+│ ├── huff.hpp
+│ ├── threads.hpp
+│ └── crc32.hpp
+├── src/
+│ ├── bitio.cpp
+│ ├── compress.cpp
+│ ├── decompress.cpp
+│ ├── huff.cpp
+│ ├── threads.cpp
+│ ├── crc32.cpp
+│ └── main.cpp
+├── tests/
+│ └── smoke.txt
+├── Makefile
+└── README.md
 
 # Build Instructions
 
