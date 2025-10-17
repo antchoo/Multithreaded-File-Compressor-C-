@@ -9,11 +9,11 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
   - Bit-accurate decoding — original data restored exactly.
 
-*Multithreading Support
+* Multithreading Support
 
-  *Files split into chunks that are compressed in parallel (threads.cpp).
+  * Files split into chunks that are compressed in parallel (threads.cpp).
 
-  *Merges bitstreams into one seamless output (no per-chunk padding).
+  * Merges bitstreams into one seamless output (no per-chunk padding).
 
 *CRC32 Integrity Checking
 
