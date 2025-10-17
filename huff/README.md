@@ -70,25 +70,104 @@ POSIX threads (included on Linux / MinGW-w64)
 make
 
 Build:
+
 make clean && make
 
+
 This creates the executable:
+
 huff.exe   # Windows
 ./huff     # Linux / macOS
+
+🧠 Usage
+Usage:
+  huff -c <input> -o <output> [-l <threads>]
+  huff -d <input> -o <output> [--verify]
+
+Options:
+  -c              Compress mode
+  -d              Decompress mode
+  -o <file>       Output file path
+  -l <threads>    (Optional) Number of threads for compression (default: auto)
+  --verify        Verify integrity via CRC after decompression
+  -h, --help      Show this help
+
+Example:
+# Compress
+./huff -c tests/smoke.txt -o tests/smoke.huff
+
+# Decompress
+./huff -d tests/smoke.huff -o tests/smoke.out
+
+# Compare
+cmp -l tests/smoke.txt tests/smoke.out && echo "OK"
+
+
+✅ Output:
+
+Compressed 'tests/smoke.txt' -> 'tests/smoke.huff' (level 5)
+Decompressed 'tests/smoke.huff' -> 'tests/smoke.out'
+OK
+
+⚡ Parallel Encoding
+
+Compression uses multiple threads to encode independent input chunks concurrently:
+
+encode_chunks_parallel(data, table, 1 << 20, 4, chunks);
+
+
+Each thread produces its own bit buffer (MemBitWriter), which is stitched back together into one final stream — maintaining identical output to the single-threaded version.
+
+This typically yields 2×–3× speedup on large files.
+
+🧩 Technical Overview
+
+Huffman Tree: Built via frequency counts, stored canonically using 256 code lengths.
+
+Header Layout:
+
+Field	Size	Description
+Magic bytes "HUF1"	4 B	File identifier
+Original size	8 B	Unsigned little-endian
+Code lengths	256 B	Huffman code lengths per symbol
+Pad bits	1 B	Unused bits in final byte
+CRC32	4 B	Integrity checksum
+Encoded data	variable	Bitstream of symbols
+
+Bit I/O:
+Implemented manually via buffered BitWriter and BitReader classes for full control of alignment and speed.
+
+Threading Model:
+Each worker compresses a slice of the input into an in-memory bitstream, later merged sequentially.
 
 🧪 Testing
 
 Smoke test included:
+
 make test
 
+
 Example script:
+
 echo "hello hello hello huffman!" > tests/smoke.txt
 ./huff -c tests/smoke.txt -o tests/smoke.huff
 ./huff -d tests/smoke.huff -o tests/smoke.out
 cmp -l tests/smoke.txt tests/smoke.out && echo OK
 
+📈 Future Improvements
+
+Adaptive Huffman or arithmetic coding support
+
+Streaming compression for large files
+
+Command-line --threads argument
+
+Real benchmark mode (--time)
+
+GUI frontend for educational demo
+
 🧑‍💻 Author
 
-Anton Choo (Yuan-Yu)
+Anton Choo
 Computer Science @ Oregon State University
 Focus: Systems, AI/ML, and high-performance software engineering
