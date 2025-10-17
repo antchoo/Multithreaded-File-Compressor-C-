@@ -37,7 +37,8 @@ Cross-platform
 
 Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
 
-#🧩 Project Structure
+# Project Structure
+
 huff/
 ├── include/
 │   ├── bitio.hpp
