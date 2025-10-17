@@ -21,9 +21,9 @@ Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CR
 
 * Modular Design
 
-  - Each component is separated:
+  * Each component is separated:
 
-    - bitio.* – bit-level read/write
+    * bitio.* – bit-level read/write
 
     - huff.* – canonical Huffman code logic
 
