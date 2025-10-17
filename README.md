@@ -1,12 +1,7 @@
 # Multithreaded-File-Compressor-C-
 Multithreaded Huffman compressor in C++20 — bit-level I/O, canonical codes, CRC32 integrity, and parallel chunk encoding for 2–3× faster performance.
 
-🗜️ Multithreaded File Compressor (C++)
-
-A lightweight command-line tool for compressing and decompressing files using Huffman coding, with optional parallel chunk encoding to leverage multi-core CPUs.
-Built from scratch in modern C++20 with POSIX threads, bit-level I/O, and clean modular design.
-
-🚀 Features
+#🚀 Features
 
 Huffman Compression / Decompression
 
@@ -42,7 +37,7 @@ Cross-platform
 
 Builds cleanly on Windows (MSYS2 / MinGW-w64) and Linux with make.
 
-🧩 Project Structure
+#🧩 Project Structure
 huff/
 ├── include/
 │   ├── bitio.hpp
@@ -62,7 +57,7 @@ huff/
 ├── Makefile
 └── README.md
 
-⚙️ Build Instructions
+#⚙️ Build Instructions
 
 Requirements:
 
