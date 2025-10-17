@@ -78,7 +78,7 @@ This creates the executable:
 huff.exe   # Windows
 ./huff     # Linux / macOS
 
-🧠 Usage
+### 🧠 Usage
 Usage:
   huff -c <input> -o <output> [-l <threads>]
   huff -d <input> -o <output> [--verify]
